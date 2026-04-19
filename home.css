@@ -1,0 +1,238 @@
+/*  Hero */
+.hero {
+    padding: 80px 32px 96px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text h1 {
+    color: #FDF8F2;
+    margin-bottom: 16px;
+}
+.hero-text p {
+    font-size: 17.6px;
+    max-width: 480px;
+    margin-bottom: 32px;
+}
+
+/* Recipe Builder Card */
+.builder-card {
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+}
+
+.builder-card h3 {
+    color: var(--brown-900);
+    margin-bottom: 4px;
+}
+
+.builder-card .subtitle {
+    font-size: 13.6px;
+    color: var(--text-light);
+    margin-bottom: 24px;
+}
+
+.ingredient-input-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.ingredient-input-row input {
+    flex: 1;
+}
+
+.ingredient-input-row input::placeholder {
+    color: var(--text-light);
+}
+
+#tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 36px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--brown-100);
+    margin-bottom: 20px;
+}
+
+#tag-container:empty::before {
+    content: 'Your ingredients will appear here…';
+    font-size: 12.8px;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+.find-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14.4px;
+    font-size: 16px;
+    border-radius: var(--radius-md);
+}
+
+/* ── How It Works ─────────────────────────────────────── */
+.how-section {
+    background: var(--brown-50);
+    border-top: 1px solid var(--brown-100);
+    border-bottom: 1px solid var(--brown-100);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.step-card {
+    text-align: center;
+    padding: 32px 24px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border-top: 4px solid var(--blue-500);
+}
+
+.step-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 16px;
+    background: linear-gradient(135deg, var(--blue-700), var(--blue-500));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25.6px;
+}
+
+.step-card h4 {
+    margin-bottom: 8px;
+    color: var(--brown-900);
+}
+
+.step-card p {
+    font-size: 14.4px;
+}
+
+/* Results Section */
+#results-section {
+    padding: 64px 32px;
+    background: #FDF8F2;
+}
+
+.results-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+}
+
+/* ── Recipe Card ──────────────────────────────────────── */
+.recipe-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.recipe-card-header {
+    background: linear-gradient(135deg, var(--blue-700), var(--blue-900));
+    padding: 20px 24px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.recipe-card-header h3 {
+    color: var(--white);
+    font-size: 18.4px;
+}
+
+.match-badge {
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.15);
+    color: var(--white);
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.recipe-card-body {
+    padding: 24px;
+}
+
+.ingredient-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.ingredient-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--text-mid);
+}
+
+.ingredient-list li .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.dot-have   { background: #3AAD6E; }
+.dot-missing { background: var(--brown-300); }
+
+
+
+/* Hide the results section before the user submits the form */
+#results-section.hidden { 
+    display: none; 
+}
+
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero-text p { 
+        max-width: 100%; 
+        }
+    .steps-grid { 
+        grid-template-columns: 1fr; 
+    }
+}

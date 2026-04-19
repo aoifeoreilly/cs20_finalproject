@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Garlic Butter Pasta",
+        "ingredients": ["pasta", "garlic", "butter", "parmesan", "parsley"]
+    },
+    {
+        "name": "Classic Chicken Stir-Fry",
+        "ingredients": ["chicken", "broccoli", "soy sauce", "garlic", "ginger", "rice"]
+    },
+    {
+        "name": "Tomato Basil Soup",
+        "ingredients": ["tomato", "basil", "onion", "garlic", "olive oil", "cream"]
+    },
+    {
+        "name": "Veggie Omelette",
+        "ingredients": ["eggs", "spinach", "bell pepper", "onion", "cheese"]
+    },
+    {
+        "name": "Lemon Herb Salmon",
+        "ingredients": ["salmon", "lemon", "garlic", "olive oil", "rosemary", "asparagus"]
+    },
+    {
+        "name": "Black Bean Tacos",
+        "ingredients": ["black beans", "tortilla", "avocado", "lime", "cilantro", "salsa"]
+    }
+]

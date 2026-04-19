@@ -1,0 +1,33 @@
+
+.stores-section {
+    padding-top: 1rem;
+}
+
+.stores-section h4 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+}
+
+.store-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.75rem;
+    background: var(--brown-50);
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.store-item .store-name {
+    font-weight: 600;
+    color: var(--brown-700);
+}
+
+.store-item .store-items-count {
+    color: var(--blue-500);
+    font-size: 0.78rem;
+}

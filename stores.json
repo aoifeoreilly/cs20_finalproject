@@ -1,0 +1,14 @@
+{
+    "Wegmans": ["garlic", "butter", "parmesan", "parsley", "pasta", "chicken",
+                "broccoli", "soy sauce", "ginger", "rice", "salmon", "lemon",
+                "rosemary", "asparagus", "black beans", "tortilla", "avocado",
+                "lime", "cilantro", "salsa", "eggs", "cream", "olive oil"],
+    "Stop & Shop": ["garlic", "pasta", "butter", "onion", "tomato", "basil",
+                    "olive oil", "eggs", "spinach", "bell pepper", "cheese",
+                    "chicken", "broccoli", "soy sauce", "rice", "black beans",
+                    "tortilla", "avocado", "lime"],
+    "Trader Joe's": ["garlic", "pasta", "parmesan", "parsley", "basil", "tomato",
+                    "cream", "olive oil", "lemon", "salmon", "rosemary",
+                    "asparagus", "black beans", "avocado", "cilantro", "salsa",
+                    "eggs", "spinach", "cheese", "butter"]
+}
