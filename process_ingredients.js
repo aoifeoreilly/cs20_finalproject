@@ -1,10 +1,7 @@
 let RECIPES = [];
 let STORE_INVENTORY = {};
-
-// State
 let userIngredients = [];
 
-// Input handling
 const input = document.getElementById('ingredient-input');
 
 input.addEventListener('keydown', function (e) {
@@ -17,12 +14,29 @@ function normalize(str) {
     return str.trim().toLowerCase();
 }
 
+function hasIngredient(item) {
+    return userIngredients.indexOf(item) !== -1;
+}
+
+function showElement(id) {
+    document.getElementById(id).className = document.getElementById(id).className.replace('hidden', '').trim();
+}
+
+function hideElement(id) {
+    const el = document.getElementById(id);
+    if (el.className.indexOf('hidden') === -1) {
+        el.className += ' hidden';
+    }
+}
+
 function addIngredient() {
     const val = normalize(input.value);
 
-    if (!val) return;
+    if (!val) {
+        return;
+    }
 
-    if (userIngredients.includes(val)) {
+    if (userIngredients.indexOf(val) !== -1) {
         input.value = '';
         return;
     }
@@ -42,86 +56,101 @@ function removeIngredient(ing) {
 
 function renderTags() {
     const container = document.getElementById('tag-container');
+    let html = '';
+    let i;
 
-    container.innerHTML = userIngredients.map(function (ing) {
-        return `
-            <span class="tag">
-                ${ing}
-                <span class="tag-remove" onclick="removeIngredient('${ing}')" title="Remove">&times;</span>
-            </span>
-        `;
-    }).join('');
-}
-
-async function loadData() {
-    try {
-        const recipeResponse = await fetch('recipes.json');
-        RECIPES = await recipeResponse.json();
-
-        const storeResponse = await fetch('stores.json');
-        STORE_INVENTORY = await storeResponse.json();
-    } catch (error) {
-        console.log('Error loading JSON data:', error);
+    for (i = 0; i < userIngredients.length; i++) {
+        html += '<span class="tag">' + userIngredients[i]
+            + '<span class="tag-remove" onclick="removeIngredient(\'' + userIngredients[i] + '\')" title="Remove">&times;</span>'
+            + '</span>';
     }
+
+    container.innerHTML = html;
 }
 
-async function findRecipes() {
+function loadData(done) {
+    fetch('recipes.json')
+        .then(function (res) {
+            return res.text();
+        })
+        .then(function (data) {
+            RECIPES = JSON.parse(data);
+            return fetch('stores.json');
+        })
+        .then(function (res) {
+            return res.text();
+        })
+        .then(function (data) {
+            STORE_INVENTORY = JSON.parse(data);
+            if (done) {
+                done();
+            }
+        })
+        .catch(function (error) {
+            console.log('Error loading JSON data:', error);
+        });
+}
+
+function findRecipes() {
     if (userIngredients.length === 0) {
         alert('Please add at least one ingredient first!');
         return;
     }
 
     if (RECIPES.length === 0) {
-        await loadData();
+        loadData(function () {
+            findRecipes();
+        });
+        return;
     }
 
-    const resultsSection = document.getElementById('results-section');
-    const loadingState = document.getElementById('loading-state');
     const resultsGrid = document.getElementById('results-grid');
     const noResults = document.getElementById('no-results');
 
-    resultsSection.classList.remove('hidden');
-    loadingState.classList.remove('hidden');
+    showElement('results-section');
+    showElement('loading-state');
+    hideElement('no-results');
     resultsGrid.innerHTML = '';
-    noResults.classList.add('hidden');
-    resultsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    location.href = '#results-section';
 
     setTimeout(function () {
-        loadingState.classList.add('hidden');
-
-        const matches = RECIPES.map(function (recipe) {
+        let matches = RECIPES.map(function (recipe) {
             const have = recipe.ingredients.filter(function (i) {
-                return userIngredients.includes(i);
+                return hasIngredient(i);
             });
 
             const missing = recipe.ingredients.filter(function (i) {
-                return !userIngredients.includes(i);
+                return !hasIngredient(i);
             });
-
-            const score = have.length / recipe.ingredients.length;
 
             return {
                 name: recipe.name,
                 ingredients: recipe.ingredients,
                 have: have,
                 missing: missing,
-                score: score
+                score: have.length / recipe.ingredients.length
             };
-        })
-        .filter(function (recipe) {
+        });
+
+        matches = matches.filter(function (recipe) {
             return recipe.score > 0;
-        })
-        .sort(function (a, b) {
+        });
+
+        matches.sort(function (a, b) {
             return b.score - a.score;
         });
 
-        document.getElementById('results-heading').textContent =
-            matches.length > 0
-                ? matches.length + (matches.length === 1 ? ' recipe found for you' : ' recipes found for you')
-                : 'No recipes found';
+        hideElement('loading-state');
+
+        if (matches.length > 0) {
+            document.getElementById('results-heading').innerHTML = matches.length
+                + (matches.length === 1 ? ' recipe found for you' : ' recipes found for you');
+        } else {
+            document.getElementById('results-heading').innerHTML = 'No recipes found';
+        }
 
         if (matches.length === 0) {
-            noResults.classList.remove('hidden');
+            showElement('no-results');
             return;
         }
 
@@ -133,87 +162,98 @@ async function findRecipes() {
 
 function buildRecipeCard(recipe, index) {
     const pct = Math.round(recipe.score * 100);
-    const delay = index * 80;
-
-    const haveItems = recipe.have.map(function(i) {
-        return `<li><span class="dot dot-have"></span> ${capitalize(i)} <span style="color:#3AAD6E;font-size:0.75rem;">✓</span></li>`;
-    }).join('');
-
-    const missingItems = recipe.missing.map(function(i) {
-        return `<li><span class="dot dot-missing"></span> ${capitalize(i)}</li>`;
-    }).join('');
-
-    const storeHtml = buildStoreInfo(recipe.missing);
-
+    let haveItems = '';
+    let missingItems = '';
     let extraSection = '';
+    let i;
 
-    if (recipe.missing.length === 0) {
-        extraSection = `<p style="font-size:0.9rem;color:#3AAD6E;font-weight:700;">You have everything!</p>`;
-    } else {
-        extraSection = `
-            <div class="stores-section">
-                <h4>Where to buy the rest</h4>
-                ${storeHtml !== '' ? storeHtml : '<p style="font-size:0.85rem;color:#6b7280;">No local store matches found.</p>'}
-            </div>
-
-            <button class="btn btn-primary shop-btn" onclick='shopOnInstacart(${JSON.stringify(recipe.missing)})'>
-                Shop Missing Ingredients on Instacart
-            </button>
-        `;
+    for (i = 0; i < recipe.have.length; i++) {
+        haveItems += '<li><span class="dot dot-have"></span> ' + capitalize(recipe.have[i])
+            + ' <span style="color:#3AAD6E;font-size:0.75rem;">&#10003;</span></li>';
     }
 
-    return `
-        <div class="recipe-card" style="animation-delay:${delay}ms">
-            <div class="recipe-card-header">
-                <h3>${recipe.name}</h3>
-                <span class="match-badge">${pct}% match</span>
-            </div>
-            <div class="recipe-card-body">
-                <ul class="ingredient-list">
-                    ${haveItems}
-                    ${missingItems}
-                </ul>
-                ${extraSection}
-            </div>
-        </div>
-    `;
+    for (i = 0; i < recipe.missing.length; i++) {
+        missingItems += '<li><span class="dot dot-missing"></span> ' + capitalize(recipe.missing[i]) + '</li>';
+    }
+
+    if (recipe.missing.length === 0) {
+        extraSection = '<p style="font-size:0.9rem;color:#3AAD6E;font-weight:700;">You have everything!</p>';
+    } else {
+        extraSection = '<div class="stores-section">'
+            + '<h4>Where to buy the rest</h4>'
+            + buildStoreInfo(recipe.missing)
+            + '</div>'
+            + '<button class="btn btn-primary shop-btn" onclick="shopOnInstacart(\'' + recipe.missing.join('|') + '\')">'
+            + 'Shop Missing Ingredients on Instacart</button>';
+
+        if (buildStoreInfo(recipe.missing) === '') {
+            extraSection = '<div class="stores-section">'
+                + '<h4>Where to buy the rest</h4>'
+                + '<p style="font-size:0.85rem;color:#6b7280;">No local store matches found.</p>'
+                + '</div>'
+                + '<button class="btn btn-primary shop-btn" onclick="shopOnInstacart(\'' + recipe.missing.join('|') + '\')">'
+                + 'Shop Missing Ingredients on Instacart</button>';
+        }
+    }
+
+    return '<div class="recipe-card">'
+        + '<div class="recipe-card-header">'
+        + '<h3>' + recipe.name + '</h3>'
+        + '<span class="match-badge">' + pct + '% match</span>'
+        + '</div>'
+        + '<div class="recipe-card-body">'
+        + '<ul class="ingredient-list">' + haveItems + missingItems + '</ul>'
+        + extraSection
+        + '</div>'
+        + '</div>';
 }
 
 function buildStoreInfo(missingItems) {
-    if (missingItems.length === 0) return '';
+    let store;
+    let inventory;
+    let available;
+    let html = '';
 
-    return Object.entries(STORE_INVENTORY).map(function ([store, inventory]) {
-        const available = missingItems.filter(function (i) {
-            return inventory.includes(i);
+    if (missingItems.length === 0) {
+        return '';
+    }
+
+    for (store in STORE_INVENTORY) {
+        inventory = STORE_INVENTORY[store];
+        available = missingItems.filter(function (item) {
+            return inventory.indexOf(item) !== -1;
         });
 
-        if (available.length === 0) return '';
+        if (available.length > 0) {
+            html += '<div class="store-item">'
+                + '<span class="store-name">' + store + '</span>'
+                + '<span class="store-items-count">' + available.length + ' of ' + missingItems.length + ' missing items</span>'
+                + '</div>';
+        }
+    }
 
-        return `
-            <div class="store-item">
-                <span class="store-name">${store}</span>
-                <span class="store-items-count">${available.length} of ${missingItems.length} missing items</span>
-            </div>
-        `;
-    }).filter(Boolean).join('');
+    return html;
 }
 
 function shopOnInstacart(items) {
-    const query = encodeURIComponent(items.join(" "));
-    const url = `https://www.instacart.com/store/s?k=${query}`;
-    window.open(url, "_blank");
+    const list = items.split('|');
+    const query = encodeURIComponent(list.join(' '));
+    const url = 'https://www.instacart.com/store/s?k=' + query;
+    window.open(url, '_blank');
 }
 
 function clearResults() {
-    document.getElementById('results-section').classList.add('hidden');
+    hideElement('results-section');
     document.getElementById('results-grid').innerHTML = '';
     userIngredients = [];
     renderTags();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
 }
 
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-window.onload = loadData;
+window.onload = function () {
+    loadData();
+};
