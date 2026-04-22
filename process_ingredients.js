@@ -10,18 +10,42 @@ input.addEventListener('keydown', function (e) {
     }
 });
 
+/* normalize
+   purpose: Clean up an ingredient string for consistent matching
+   parameters: str - the ingredient text to normalize
+   returns: a lowercase string with leading/trailing spaces removed
+   notes: used before storing or comparing user input
+*/
 function normalize(str) {
     return str.trim().toLowerCase();
 }
 
+/* hasIngredient
+   purpose: Check whether an ingredient exists in the current user list
+   parameters: item - the normalized ingredient name to look for
+   returns: true when the ingredient is already present, otherwise false
+   notes: uses userIngredients array membership
+*/
 function hasIngredient(item) {
     return userIngredients.indexOf(item) !== -1;
 }
 
+/* showElement
+   purpose: Reveal a hidden element by removing the hidden CSS class
+   parameters: id - the DOM element id to show
+   returns: nothing
+   notes: expects the element to exist in the document
+*/
 function showElement(id) {
     document.getElementById(id).className = document.getElementById(id).className.replace('hidden', '').trim();
 }
 
+/* hideElement
+   purpose: Hide an element by appending the hidden CSS class
+   parameters: id - the DOM element id to hide
+   returns: nothing
+   notes: avoids adding duplicate hidden classes
+*/
 function hideElement(id) {
     const el = document.getElementById(id);
     if (el.className.indexOf('hidden') === -1) {
@@ -29,6 +53,12 @@ function hideElement(id) {
     }
 }
 
+/* addIngredient
+   purpose: Add a new normalized ingredient from the input field
+   parameters: none
+   returns: nothing
+   notes: ignores empty values and duplicates, then refreshes the tag UI
+*/
 function addIngredient() {
     const val = normalize(input.value);
 
@@ -47,6 +77,12 @@ function addIngredient() {
     input.focus();
 }
 
+/* removeIngredient
+   purpose: Remove an ingredient from the current user list
+   parameters: ing - the ingredient name to remove
+   returns: nothing
+   notes: rebuilds the tag display after removal
+*/
 function removeIngredient(ing) {
     userIngredients = userIngredients.filter(function (item) {
         return item !== ing;
@@ -54,6 +90,12 @@ function removeIngredient(ing) {
     renderTags();
 }
 
+/* renderTags
+   purpose: Display current selected ingredients as removable tags
+   parameters: none
+   returns: nothing
+   notes: writes HTML into the tag container element
+*/
 function renderTags() {
     const container = document.getElementById('tag-container');
     let html = '';
@@ -68,6 +110,12 @@ function renderTags() {
     container.innerHTML = html;
 }
 
+/* loadData
+   purpose: Load recipe and store inventory JSON files into memory
+   parameters: done - optional callback to run after loading completes
+   returns: nothing
+   notes: handles errors by logging them to the console
+*/
 function loadData(done) {
     fetch('recipes.json')
         .then(function (res) {
@@ -91,6 +139,12 @@ function loadData(done) {
         });
 }
 
+/* findRecipes
+   purpose: Calculate recipe matches based on the user's ingredients
+   parameters: none
+   returns: nothing
+   notes: loads data if needed, then updates the results UI
+*/
 function findRecipes() {
     if (userIngredients.length === 0) {
         alert('Please add at least one ingredient first!');
@@ -160,6 +214,13 @@ function findRecipes() {
     }, 500);
 }
 
+/* buildRecipeCard
+   purpose: Build the HTML for a recipe card from recipe match data
+   parameters: recipe - the recipe object with name, ingredients, have, missing, and score
+               index - the index of the recipe in the results list
+   returns: the HTML string for the recipe card
+   notes: calculates match percentage and missing ingredient sections
+*/
 function buildRecipeCard(recipe, index) {
     const pct = Math.round(recipe.score * 100);
     let haveItems = '';
@@ -208,6 +269,12 @@ function buildRecipeCard(recipe, index) {
         + '</div>';
 }
 
+/* buildStoreInfo
+   purpose: Build the HTML for store availability of missing ingredients
+   parameters: missingItems - array of missing ingredient names
+   returns: the HTML string for matching stores and item counts
+   notes: uses STORE_INVENTORY to identify which stores carry items
+*/
 function buildStoreInfo(missingItems) {
     let store;
     let inventory;
@@ -235,6 +302,12 @@ function buildStoreInfo(missingItems) {
     return html;
 }
 
+/* shopOnInstacart
+   purpose: Open Instacart search results for missing ingredients
+   parameters: items - ingredients to look for
+   returns: nothing
+   notes: opens the URL in a new browser tab
+*/
 function shopOnInstacart(items) {
     const list = items.split('|');
     const query = encodeURIComponent(list.join(' '));
@@ -242,6 +315,12 @@ function shopOnInstacart(items) {
     window.open(url, '_blank');
 }
 
+/* clearResults
+   purpose: Reset ingredient selection and clear displayed recipe results
+   parameters: none
+   returns: nothing
+   notes: also scrolls the page to the top
+*/
 function clearResults() {
     hideElement('results-section');
     document.getElementById('results-grid').innerHTML = '';
@@ -250,6 +329,12 @@ function clearResults() {
     window.scrollTo(0, 0);
 }
 
+/* capitalize
+   purpose: Capitalize the first letter of a string
+   parameters: str - the string to capitalize
+   returns: the capitalized string
+   notes: leaves the rest of the string unchanged
+*/
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
