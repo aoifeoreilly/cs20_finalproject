@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>TuftsEats - Recipe Builder</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-    <link rel="stylesheet" type="text/css" href="home.css"/>
-    <link rel="stylesheet" type="text/css" href="process_ingredients.css"/>
-</head>
-<body>
-
-<!-- Navigation -->
-<nav>
-    <div class="nav-inner">
-    <a class="nav-logo" href="home.html">Tufts<span>Eats</span></a>
-    <ul class="nav-links">
-        <li><a href="home.html">Recipe Builder</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="menus.html">Tufts Menus</a></li>
-    </ul>
-    </div>
-</nav>
+<?php include 'header.php'; ?>
 
 <!-- Hero -->
 <section class="hero">
@@ -80,7 +56,7 @@
         </div>
     </section>
 
-    <!-- How It Works -->
+    <!-- How it works section -->
     <section class="section how-section">
         <div class="section-inner">
         <div class="text-center">
@@ -108,16 +84,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>
-        &copy; 2025 <strong>TuftsEats</strong>&nbsp;&nbsp;
-        <a href="contact.html">Contact Us</a>&nbsp;&nbsp;
-        <a href="reviews.html">Reviews</a>
-        </p>
-    </footer>
+    <script src="process_ingredients.js"></script>
 
-    <script src="process_ingredients_scope_fixed.js"></script>
-
-</body>
-</html>
+<?php include 'footer.php'; ?>

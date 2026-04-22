@@ -48,6 +48,8 @@ img {
     display: block;
 }
 
+/* --- Layout Components --- */
+
 nav {
     position: relative;
     z-index: 1000;
@@ -99,6 +101,8 @@ nav {
     transform: translateY(-1px);
 }
 
+/* --- Buttons --- */
+
 .btn {
     display: inline-block;
     border: none;
@@ -139,6 +143,8 @@ nav {
     color: #ffffff;
 }
 
+/* --- Sections & Utility --- */
+
 .section {
     padding: 88px 32px;
 }
@@ -169,26 +175,63 @@ nav {
     background-color: #4f89d9;
 }
 
-.card {
-    background: rgba(255,255,255,0.82);
-    border: 1px solid rgba(255,255,255,0.65);
-    border-radius: 22px;
+/* --- Results & Cards --- */
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.recipe-card {
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #e5e7eb;
     overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-.card-header {
-    padding: 22px 26px;
-    background: #2d5f9f;
-    color: #ffffff;
+.recipe-card-header {
+    padding: 18px 22px;
+    background: #f9fafb;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.card-header h3,
-.card-header h4 {
-    color: #ffffff;
+.recipe-card-body {
+    padding: 22px;
+    flex-grow: 1;
 }
 
-.card-body {
-    padding: 28px;
+.match-badge {
+    background: #eef2ff;
+    color: #4f46e5;
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+/* --- Forms & Inputs --- */
+
+.builder-card {
+    background: rgba(255,255,255,0.96);
+    padding: 32px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,0.65);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
 }
 
 .form-group {
@@ -199,28 +242,29 @@ nav {
 }
 
 label {
-    font-size: 0.94rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: #4d3526;
+    margin-bottom: 0.3rem;
 }
 
 input[type="text"],
 input[type="email"],
+input[type="password"],
 textarea,
 select {
     width: 100%;
-    padding: 14px 16px;
-    border-radius: 16px;
+    padding: 12px 16px;
+    border-radius: 12px;
     border: 1px solid #d8e5f7;
-    background: rgba(255,255,255,0.95);
+    background: #ffffff;
     color: #1f2937;
     font-size: 0.98rem;
     outline: none;
     transition: border-color 0.25s ease;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
+input:focus,
 textarea:focus,
 select:focus {
     border-color: #6aa1eb;
@@ -228,62 +272,89 @@ select:focus {
 
 textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 100px;
 }
 
-.badge {
+/* --- Custom Components --- */
+
+.ingredient-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ingredient-list li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.94rem;
+    display: flex;
+    align-items: center;
+}
+
+.ingredient-list li:last-child {
+    border-bottom: none;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
     display: inline-block;
-    padding: 5px 12px;
-    border-radius: 999px;
-    font-size: 0.78rem;
-    font-weight: 700;
+    margin-right: 12px;
 }
 
-.badge-blue {
-    background: #dbe9ff;
+.dot-have {
+    background-color: #3aad6e;
+}
+
+/* --- Modal --- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.menu-item-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.menu-item-link:hover {
     color: #2d5f9f;
+    transform: translateX(5px);
 }
 
-.badge-brown {
-    background: #eadccf;
-    color: #654632;
-}
+/* --- Success/Error Msgs --- */
 
-.tag {
-    display: inline-block;
-    padding: 7px 13px;
-    background: #f4f8ff;
-    border: 1px solid #bfd7ff;
-    border-radius: 999px;
-    color: #2d5f9f;
-    font-size: 0.86rem;
+.alert-success {
+    background: #d1fae5;
+    color: #065f46;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
     font-weight: 600;
-    margin-right: 8px;
-    margin-bottom: 8px;
 }
 
-.tag .tag-remove {
-    cursor: pointer;
-    font-size: 1rem;
-    color: #6aa1eb;
-    margin-left: 8px;
-}
-
-.tag .tag-remove:hover {
-    color: #9a6c49;
-}
-
-.empty-state {
-    text-align: center;
-    padding: 40px 20px;
-    background: rgba(255,255,255,0.8);
-    border: 1px dashed #bfd7ff;
-    border-radius: 22px;
-}
-
-.hidden {
-    display: none;
-}
+/* --- Footer --- */
 
 footer {
     background: #332218;
@@ -304,6 +375,8 @@ footer a {
 footer a:hover {
     color: #ffffff;
 }
+
+/* --- Responsive --- */
 
 @media (max-width: 900px) {
     .nav-inner {

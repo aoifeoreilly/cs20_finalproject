@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>TuftsEats - Contact</title>
-    <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-    <link rel="stylesheet" type="text/css" href="home.css"/>
-</head>
-<body>
-
-<nav>
-    <div class="nav-inner">
-        <a class="nav-logo" href="home.html">Tufts<span>Eats</span></a>
-        <ul class="nav-links">
-            <li><a href="home.html">Recipe Builder</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
-            <li><a href="menus.html">Tufts Menus</a></li>
-        </ul>
-    </div>
-</nav>
+<?php include 'header.php'; ?>
 
 <section class="hero">
     <div class="hero-inner">
@@ -99,13 +77,27 @@
     </div>
 </section>
 
-<footer>
-    <p>
-        &copy; 2025 <strong>TuftsEats</strong>&nbsp;&nbsp;
-        <a href="contact.html">Contact Us</a>&nbsp;&nbsp;
-        <a href="reviews.html">Reviews</a>
-    </p>
-</footer>
+<style>
+.form-group {
+    cmargin-bottom: 1.5rem; 
+}
+.form-group label { 
+    display: block; 
+    margin-bottom: 0.5rem; 
+    font-weight: 600; 
+    color: #374151; 
+}
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%; 
+    padding: 0.75rem; 
+    border: 1px solid #d1d5db; 
+    border-radius: 0.5rem; 
+    font-family: inherit;
+}
+.form-group textarea { 
+    min-height: 100px; 
+    resize: vertical; 
+}
+</style>
 
-</body>
-</html>
+<?php include 'footer.php'; ?>
