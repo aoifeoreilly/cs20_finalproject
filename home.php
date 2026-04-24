@@ -57,7 +57,12 @@
             <p class="section-label">Results</p>
             <h2 id="results-heading">Recipes for you</h2>
             </div>
-            <button class="btn btn-outline" onclick="clearResults()">← Start Over</button>
+            <!-- Button to send user back to the top of the screen  -->
+            <div style="display: flex; gap: 0.5rem;">
+            <button class="btn btn-outline" onclick="window.scrollTo(0, 0)">Back to Ingredients</button>
+            <!-- Button to reset results and restart search -->
+            <button class="btn btn-outline" onclick="clearResults()">Start Over</button>
+            </div>
         </div>
 
         <div id="loading-state" class="hidden">

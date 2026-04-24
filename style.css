@@ -49,6 +49,7 @@ img {
 
 /* --- Layout Components --- */
 
+/* Nav Bar */
 nav {
     position: relative;
     z-index: 1000;
@@ -144,7 +145,7 @@ nav {
     color: #ffffff;
 }
 
-/* --- Sections & Utility --- */
+/* --- Sections --- */
 
 .section {
     padding: 88px 32px;
@@ -246,6 +247,9 @@ label {
     margin-bottom: 5px;
 }
 
+/* Styling for form input elements
+ * Applies consistent padding, border, and background to text inputs, emails,
+ * passwords, textareas, and select dropdowns */
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -261,6 +265,9 @@ select {
     transition: 0.25s;
 }
 
+/* Focus state styling for form input elements
+ * Applies a blue border color to input fields, textareas, and select dropdowns
+ * when they receive focus (user clicks or tabs into them) */
 input:focus,
 textarea:focus,
 select:focus {
@@ -272,8 +279,7 @@ textarea {
     min-height: 100px;
 }
 
-/* --- Custom Components --- */
-
+/* Ingredient lists */
 .ingredient-list {
     list-style: none;
     padding: 0;
