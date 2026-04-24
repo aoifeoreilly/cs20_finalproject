@@ -12,9 +12,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>TuftsEats</title>
     <link href="https://googleapis.com" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-    <link rel="stylesheet" type="text/css" href="home.css"/>
-    <link rel="stylesheet" type="text/css" href="process_ingredients.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css?v=2"/>
+    <link rel="stylesheet" type="text/css" href="home.css?v=2"/>
+    <link rel="stylesheet" type="text/css" href="process_ingredients.css?v=2"/>
 </head>
 <body>
 

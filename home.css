@@ -167,7 +167,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-right: 16px;
 }
 
 .recipe-card-header h3 {
