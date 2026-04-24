@@ -1,3 +1,4 @@
+/* Hero */
 .hero {
     padding: 88px 32px 96px;
     position: relative;
@@ -30,9 +31,10 @@
     margin-bottom: 30px;
 }
 
+/* Cards */
 .builder-card {
-    background: rgba(255,255,255,0.92);
-    border: 1px solid rgba(255,255,255,0.7);
+    background: #FFFFFFEB;
+    border: 1px solid #FFFFFFB3;
     border-radius: 30px;
     padding: 34px;
 }
@@ -47,6 +49,7 @@
     margin-bottom: 22px;
 }
 
+/* Ingredient inputs */
 .ingredient-input-row {
     display: flex;
     gap: 12px;
@@ -74,11 +77,12 @@
 }
 
 .how-section {
-    background: rgba(255,255,255,0.65);
-    border-top: 1px solid rgba(191, 215, 255, 0.55);
-    border-bottom: 1px solid rgba(191, 215, 255, 0.55);
+    background: #FFFFFFA6;
+    border-top: 1px solid #BFD7FF8C;
+    border-bottom: 1px solid #BFD7FF8C;
 }
 
+/* Three steps cards */
 .steps-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -89,8 +93,8 @@
 .step-card {
     padding: 32px 26px;
     text-align: center;
-    background: rgba(255,255,255,0.84);
-    border: 1px solid rgba(255,255,255,0.75);
+    background: #FFFFFFD6;
+    border: 1px solid #FFFFFFBF;
     border-radius: 22px;
     transition: transform 0.25s ease;
 }
@@ -121,6 +125,7 @@
     font-size: 0.95rem;
 }
 
+/* Ingredient results */
 #results-section {
     padding: 76px 32px 88px;
 }
@@ -145,9 +150,10 @@
     gap: 26px;
 }
 
+/* Recipe cards */
 .recipe-card {
-    background: rgba(255,255,255,0.88);
-    border: 1px solid rgba(255,255,255,0.72);
+    background: #FFFFFFE0;
+    border: 1px solid #FFFFFFB8;
     border-radius: 22px;
     overflow: hidden;
     transition: transform 0.25s ease;
@@ -173,7 +179,7 @@
 
 .match-badge {
     flex-shrink: 0;
-    background: rgba(255,255,255,0.14);
+    background: #FFFFFF24;
     color: #ffffff;
     padding: 6px 11px;
     border-radius: 999px;
@@ -217,6 +223,7 @@
     background: #c5a383;
 }
 
+/* Responsive Media */
 @media (max-width: 950px) {
     .hero-inner {
         grid-template-columns: 1fr;
