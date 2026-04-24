@@ -341,6 +341,13 @@ textarea {
 
 /* --- Success/Error Msgs --- */
 
+.flash-msg {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .alert-success {
     background: #d1fae5;
     color: #065f46;
@@ -392,6 +399,17 @@ footer a:hover {
 
     .section {
         padding: 64px 20px;
+    }
+
+    .hide-mobile {
+        display: none !important;
+    }
+
+    .flash-msg {
+        top: 16px;
+        left: auto;
+        right: 16px;
+        transform: none;
     }
 
     h1 {

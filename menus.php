@@ -1,5 +1,28 @@
 <?php 
-include 'header.php'; 
+//start session 
+session_start();
+include 'header.php';
+
+if (!isset($_SESSION['user_id']) || $_SESSION['subscription_type'] !== 'premium') {
+    ?>
+    <section class="hero" style="min-height:70vh; display:flex; align-items:center;">
+        <div class="hero-inner" style="display:flex; justify-content:center; width:100%;">
+            <div class="builder-card" style="width:100%; max-width:520px; padding:3rem; text-align:center;">
+                <h3 style="margin-bottom:1rem;">Premium Feature</h3>
+                <p style="margin-bottom:2rem;">Live dining menus are only available to premium accounts.</p>
+                <?php if (!isset($_SESSION['user_id'])): ?>
+                    <a href="login.php" class="btn btn-primary">Login</a>
+                <?php else: ?>
+                    <a href="upgrade.php" class="btn btn-primary">Upgrade to Premium</a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
+    <?php
+    include 'footer.php';
+    exit();
+}
+
 include 'db_connect.php';
 
 $today = date('Y-m-d');
@@ -17,6 +40,22 @@ function getMenu($db, $loc, $meal, $date) {
     return $items;
 }
 
+//for getting rating data for each item
+function getRatingData($db) {
+    //query db to get avg rating and number of revuw
+    $results = $db->query("SELECT reviewed_item, AVG(rating) AS avg_rating, COUNT(*) AS review_count FROM reviews GROUP BY reviewed_item");
+    $items = [];
+    //turn into assoc array
+    while($row = $results->fetch_assoc()){
+        $items[$row['reviewed_item']] = [
+        'avg' => $row['avg_rating'],                                                                                                                                                                                
+        'count' => $row['review_count']                                                                                                                                                                             
+        ];    
+    }
+    return $items;
+
+}
+
 $carmBreakfast = getMenu($dbConnection, 'carmichael-dining-hall', 'breakfast', $today);
 $carmLunch     = getMenu($dbConnection, 'carmichael-dining-hall', 'lunch', $today);
 $carmDinner    = getMenu($dbConnection, 'carmichael-dining-hall', 'dinner', $today);
@@ -24,6 +63,8 @@ $carmDinner    = getMenu($dbConnection, 'carmichael-dining-hall', 'dinner', $tod
 $dewickBreakfast = getMenu($dbConnection, 'dewick-dining', 'breakfast', $today);
 $dewickLunch     = getMenu($dbConnection, 'dewick-dining', 'lunch', $today);
 $dewickDinner    = getMenu($dbConnection, 'dewick-dining', 'dinner', $today);
+
+$ratingData = getRatingData($dbConnection);   
 
 ?>
 
@@ -92,9 +133,9 @@ $dewickDinner    = getMenu($dbConnection, 'dewick-dining', 'dinner', $today);
             <span class="match-badge">Res Quad</span>
         </div>
         <div class="results-grid">
-            <?php renderMealBox('Breakfast', $carmBreakfast); ?>
-            <?php renderMealBox('Lunch', $carmLunch); ?>
-            <?php renderMealBox('Dinner', $carmDinner); ?>
+            <?php renderMealBox('Breakfast', $carmBreakfast, $ratingData); ?>
+            <?php renderMealBox('Lunch', $carmLunch, $ratingData); ?>
+            <?php renderMealBox('Dinner', $carmDinner, $ratingData); ?>
         </div>
     </div>
 </section>
@@ -107,15 +148,17 @@ $dewickDinner    = getMenu($dbConnection, 'dewick-dining', 'dinner', $today);
             <span class="match-badge">Medford</span>
         </div>
         <div class="results-grid">
-            <?php renderMealBox('Breakfast', $dewickBreakfast); ?>
-            <?php renderMealBox('Lunch', $dewickLunch); ?>
-            <?php renderMealBox('Dinner', $dewickDinner); ?>
+            <?php renderMealBox('Breakfast', $dewickBreakfast, $ratingData); ?>
+            <?php renderMealBox('Lunch', $dewickLunch, $ratingData); ?>
+            <?php renderMealBox('Dinner', $dewickDinner, $ratingData); ?>
         </div>
     </div>
 </section>
 
 <?php
-function renderMealBox($title, $items) {
+
+#added 3rd parameter for it to take in rating data 
+function renderMealBox($title, $items, $ratingData) {
     echo '<div class="recipe-card">';
     echo '<div class="recipe-card-header"><h3>'.$title.'</h3></div>';
     echo '<div class="recipe-card-body"><ul class="ingredient-list">';
@@ -125,7 +168,20 @@ function renderMealBox($title, $items) {
         foreach($items as $item) {
             $safeItem = htmlspecialchars($item);
             echo '<li><a href="javascript:void(0)" class="menu-item-link" onclick="openReviewModal(\''.$safeItem.'\')">';
-            echo '<span class="dot dot-have"></span> '.$safeItem.'</a></li>';
+            echo '<span class="dot dot-have"></span> '.$safeItem.'</a>';
+
+            #check if rating data exists
+            if(isset($ratingData[$item])){
+                $avg = round($ratingData[$item]['avg'], 1);
+                $pct = ($avg / 5) * 100;
+                $count = $ratingData[$item]['count'];
+                echo '<span style="display:inline-block; position:relative; color:#e5e7eb; font-size:0.9rem; letter-spacing:2px;">☆☆☆☆☆<span style="position:absolute; top:0; left:0; overflow:hidden; width:'.$pct.'%; color:#f59e0b;">★★★★★</span></span>';
+                echo '<span style="font-size:0.8rem; color:#6b7280;"> ('.$count.')</span>';
+            }else{
+                echo '<span style="font-size:0.8rem; color:#9ca3af;">No reviews</span>';
+            }
+
+            echo '</li>';
         }
     }
     echo '</ul></div></div>';

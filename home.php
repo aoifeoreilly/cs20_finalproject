@@ -2,6 +2,22 @@
 
 <!-- Hero -->
 <section class="hero">
+    <!-- for when user logs in -->
+    <?php if (isset($_GET['login'])): ?>                                                                                                                                                                            
+      <div id="msg" class="flash-msg" style="background:#3AAD6E; color:white; padding:0.5rem 1.25rem; border-radius:999px; font-weight:600; font-size:0.8rem; z-index:9999; max-width:80%; text-align:center;">                                                                                                                                                          
+            Successfully logged in!                                                                                                                                                                                 
+      </div>                                                                                                                                                                                                      
+      <script>
+        //makes it so that it doesn't permenantly stay on your screen    
+          setTimeout(function() {
+              var el = document.getElementById('msg');                                                                                                                                                    
+              el.style.transition = 'opacity 0.5s';
+              el.style.opacity = '0';                                                                                                                                                                             
+              setTimeout(() => el.remove(), 500);
+          }, 2500);                                                                                                                                                                                               
+      </script>
+  <?php endif; ?>                                                                                                                                                                                                 
+
     <div class="hero-inner">
         <div class="hero-text">
             <p class="section-label">Tufts University - Recipe Builder</p>
