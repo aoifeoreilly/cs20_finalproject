@@ -4,17 +4,16 @@
     position: relative;
     overflow: hidden;
     background-color: #eef5ff;
+    align-items: center;
 }
 
 .hero-inner {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 56px;
+    grid-template-columns: 55% 45%;
     align-items: center;
     position: relative;
-    z-index: 1;
 }
 
 .hero-text h1 {
@@ -23,11 +22,11 @@
 }
 
 .hero-text p {
-    font-size: 1.06rem;
+    font-size: 17px;
     max-width: 560px;
 }
 
-.hero-text p:last-of-type {
+.hero-description {
     margin-bottom: 30px;
 }
 
@@ -44,7 +43,7 @@
 }
 
 .builder-card .subtitle {
-    font-size: 0.95rem;
+    font-size: 15px;
     color: #6b7280;
     margin-bottom: 22px;
 }
@@ -52,28 +51,28 @@
 /* Ingredient inputs */
 .ingredient-input-row {
     display: flex;
-    gap: 12px;
+    margin-right: 12px;
     margin-bottom: 16px;
 }
 
 .ingredient-input-row input {
-    flex: 1;
+    width: 100%;
 }
 
 #tag-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    min-height: 44px;
+    height: 44px;
     padding: 10px 0 14px;
     border-bottom: 1px dashed #bfd7ff;
+    margin-right: 10px;
     margin-bottom: 22px;
 }
 
 .find-btn {
     width: 100%;
     padding: 15px;
-    font-size: 1rem;
+    font-size: 16px;
 }
 
 .how-section {
@@ -85,8 +84,9 @@
 /* Three steps cards */
 .steps-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    grid-template-columns: 33% 33% 33%;
+    margin-right: 28px;
+    margin-bottom: 28px;
     margin-top: 46px;
 }
 
@@ -96,11 +96,10 @@
     background: #FFFFFFD6;
     border: 1px solid #FFFFFFBF;
     border-radius: 22px;
-    transition: transform 0.25s ease;
 }
 
 .step-card:hover {
-    transform: translateY(-6px);
+    border: 1px solid #2d5f9f;
 }
 
 .step-icon {
@@ -113,7 +112,7 @@
     justify-content: center;
     background-color: #3c73bf;
     color: #ffffff;
-    font-size: 1.8rem;
+    font-size: 29px;
     font-weight: 700;
 }
 
@@ -122,7 +121,7 @@
 }
 
 .step-card p {
-    font-size: 0.95rem;
+    font-size: 15px;
 }
 
 /* Ingredient results */
@@ -139,15 +138,15 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
+    margin-right: 16px;
     flex-wrap: wrap;
     margin-bottom: 28px;
 }
 
 .results-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 26px;
+    grid-template-columns: 33% 33% 33%;
+    margin-bottom: 26px;
 }
 
 /* Recipe cards */
@@ -156,11 +155,10 @@
     border: 1px solid #FFFFFFB8;
     border-radius: 22px;
     overflow: hidden;
-    transition: transform 0.25s ease;
 }
 
 .recipe-card:hover {
-    transform: translateY(-6px);
+    border: 1px solid #2d5f9f;
 }
 
 .recipe-card-header {
@@ -168,24 +166,22 @@
     background: #2d5f9f;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 16px;
+    align-items: center;
+    margin-right: 16px;
 }
 
 .recipe-card-header h3 {
     color: #ffffff;
-    font-size: 1.15rem;
+    font-size: 18px;
 }
 
 .match-badge {
-    flex-shrink: 0;
     background: #FFFFFF24;
     color: #ffffff;
     padding: 6px 11px;
     border-radius: 999px;
-    font-size: 0.76rem;
+    font-size: 12px;
     font-weight: 700;
-    white-space: nowrap;
 }
 
 .recipe-card-body {
@@ -196,15 +192,14 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 10px;
     margin-bottom: 18px;
 }
 
 .ingredient-list li {
     display: flex;
     align-items: center;
-    gap: 9px;
-    font-size: 0.95rem;
+    margin-right: 9px;
+    font-size: 15px;
     color: #4b5563;
 }
 
@@ -212,7 +207,6 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    flex-shrink: 0;
 }
 
 .dot-have {
@@ -226,12 +220,15 @@
 /* Responsive Media */
 @media (max-width: 950px) {
     .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 36px;
+        display: block;
+    }
+
+    .hero-text {
+        margin-bottom: 36px;
     }
 
     .steps-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 100%;
     }
 }
 

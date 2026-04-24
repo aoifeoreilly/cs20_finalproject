@@ -22,7 +22,7 @@
         <div class="hero-text">
             <p class="section-label">Tufts University - Recipe Builder</p>
             <h1>Turn what you have into something delicious!</h1>
-            <p>
+            <p class="hero-description">
             Enter the ingredients you already have and TuftsEats will generate
             recipes you can make and which nearby stores carry any ingredients 
             that you're missing.
