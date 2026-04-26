@@ -196,7 +196,8 @@ function findRecipes() {
             return recipe.score > 0;
         });
 
-        // Sort results by best match first (highest percentage of ingredients owned) (Reference https://www.w3schools.com/js/js_array_sort.asp)
+        // Sort results by best match first (highest percentage of ingredients owned) 
+        // (Reference https://www.w3schools.com/js/js_array_sort.asp)
         matches.sort(function (a, b) {
             return b.score - a.score;
         });
