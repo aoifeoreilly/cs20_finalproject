@@ -20,11 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($password !== $confirm) {
         $error = 'Passwords do not match.'; //ensure that passowrd and confirmation match
     } else {
-        //connect check if username already exists (prepare for no sql injections)
         $stmt = $dbConnection->prepare("SELECT id FROM users WHERE username = ?");
-        //fills question mark with username
         $stmt->bind_param("s", $username);
-        //runs query and stores result
         $stmt->execute();
         $stmt->store_result();
         if ($stmt->num_rows > 0) {

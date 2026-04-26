@@ -16,11 +16,10 @@
         }
         //ensure that username and passowrd exist in DB
         else{
-        //connect check if account exitst (prepare for no sql injections)
-        $stmt = $dbConnection->prepare("SELECT id, username, subscription_type FROM users WHERE username = ? AND password = ?");                                                                                        
-        //fills question mark with username and password
-        $stmt->bind_param("ss", $username, $password);  
-        //runs query and gets result
+        // https://www.php.net/manual/en/mysqli.prepare.php for using prepare
+        $stmt = $dbConnection->prepare("SELECT id, username, subscription_type FROM users WHERE username = ? AND password = ?");
+        // https://www.php.net/manual/en/mysqli-stmt.bind-param.php FOr using bind param
+        $stmt->bind_param("ss", $username, $password);
         $stmt->execute();
         $result = $stmt->get_result();
         //check if a row exists
@@ -54,7 +53,6 @@
           <div class="builder-card" style="width: 100%; max-width: 520px; padding: 3rem;">
             
             <h3>Login</h3>           
-
             <!-- for when coming form signup after creating an account -->
             <?php if (isset($_GET['registered'])): ?>                                                                                                                                                                       
                 <p style="color:#3AAD6E; font-size:0.9rem; margin-bottom:1rem;">Account created! Please log in.</p>
