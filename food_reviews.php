@@ -46,7 +46,7 @@ if (!empty($search)) {
 <section class="hero">
     <div class="hero-inner">
         <div class="hero-text">
-            <p class="section-label">Tufts University · Review Database</p>
+            <p class="section-label">Tufts University - Reviews</p>
             <h1>Community Feedback</h1>
             <p>
                 Search our database of student reviews for Tufts dining food.
@@ -75,7 +75,7 @@ if (!empty($search)) {
     <div class="section-inner">
         <?php if (isset($_GET['success'])): ?>
             <p class="alert-success">
-                ✓ Your review has been successfully posted!
+                Your review has been successfully posted!
             </p>
         <?php endif; ?>
 

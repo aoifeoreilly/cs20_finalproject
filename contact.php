@@ -3,7 +3,7 @@
 <section class="hero">
     <div class="hero-inner">
         <div class="hero-text">
-            <p class="section-label">Tufts University · Contact</p>
+            <p class="section-label">Tufts University - Contact</p>
             <h1>We'd love to hear from you.</h1>
             <p>
                 Questions, feedback, or ideas for TuftsEats? Send us a message and

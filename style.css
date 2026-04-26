@@ -40,6 +40,7 @@ p {
 a {
     color: inherit;
     transition: 0.25s;
+    text-decoration: none;
 }
 
 img {
@@ -97,6 +98,7 @@ nav {
     padding: 10px 14px;
     border-radius: 999px;
     transition: 0.25s;
+    text-decoration: none;
 }
 
 .nav-links a:hover {
@@ -386,7 +388,7 @@ footer a:hover {
 }
 
 /* --- Responsive --- */
-
+/* Stack the nav items vertically when the browser gets too small */
 @media (max-width: 900px) {
     .nav-inner {
         padding: 14px 20px;
@@ -436,6 +438,7 @@ footer a:hover {
     .nav-links a {
         width: 100%;
         text-align: center;
+        text-decoration: none;
     }
 
     h1 {
