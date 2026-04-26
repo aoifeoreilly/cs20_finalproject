@@ -22,5 +22,401 @@
     {
         "name": "Black Bean Tacos",
         "ingredients": ["black beans", "tortilla", "avocado", "lime", "cilantro", "salsa"]
+    },
+    {
+        "name": "Spaghetti Carbonara",
+        "ingredients": ["spaghetti", "eggs", "bacon", "parmesan", "black pepper", "garlic"]
+    },
+    {
+        "name": "Chicken Fried Rice",
+        "ingredients": ["rice", "chicken", "eggs", "soy sauce", "peas", "carrots", "onion"]
+    },
+    {
+        "name": "Margherita Pizza",
+        "ingredients": ["pizza dough", "tomato sauce", "mozzarella", "basil", "olive oil"]
+    },
+    {
+        "name": "Caesar Salad",
+        "ingredients": ["romaine lettuce", "parmesan", "croutons", "caesar dressing", "lemon"]
+    },
+    {
+        "name": "Beef Tacos",
+        "ingredients": ["ground beef", "tortilla", "cheddar cheese", "lettuce", "tomato", "sour cream", "taco seasoning"]
+    },
+    {
+        "name": "Mushroom Risotto",
+        "ingredients": ["arborio rice", "mushrooms", "onion", "garlic", "white wine", "parmesan", "butter", "chicken broth"]
+    },
+    {
+        "name": "Avocado Toast",
+        "ingredients": ["bread", "avocado", "lemon", "red pepper flakes", "salt", "eggs"]
+    },
+    {
+        "name": "Pancakes",
+        "ingredients": ["flour", "eggs", "milk", "butter", "baking powder", "sugar", "vanilla extract"]
+    },
+    {
+        "name": "French Toast",
+        "ingredients": ["bread", "eggs", "milk", "cinnamon", "vanilla extract", "butter", "maple syrup"]
+    },
+    {
+        "name": "Greek Salad",
+        "ingredients": ["cucumber", "tomato", "red onion", "feta cheese", "olives", "olive oil", "oregano"]
+    },
+    {
+        "name": "Beef Burgers",
+        "ingredients": ["ground beef", "burger buns", "lettuce", "tomato", "onion", "cheddar cheese", "ketchup", "mustard"]
+    },
+    {
+        "name": "Chicken Quesadillas",
+        "ingredients": ["chicken", "tortilla", "cheddar cheese", "bell pepper", "onion", "sour cream", "salsa"]
+    },
+    {
+        "name": "Minestrone Soup",
+        "ingredients": ["kidney beans", "pasta", "tomato", "zucchini", "carrot", "celery", "onion", "garlic", "chicken broth"]
+    },
+    {
+        "name": "Shrimp Tacos",
+        "ingredients": ["shrimp", "tortilla", "cabbage", "avocado", "lime", "sour cream", "cilantro"]
+    },
+    {
+        "name": "Banana Smoothie",
+        "ingredients": ["banana", "milk", "yogurt", "honey", "vanilla extract"]
+    },
+    {
+        "name": "Caprese Salad",
+        "ingredients": ["tomato", "mozzarella", "basil", "olive oil", "balsamic vinegar"]
+    },
+    {
+        "name": "Chicken Soup",
+        "ingredients": ["chicken", "carrot", "celery", "onion", "garlic", "chicken broth", "egg noodles", "parsley"]
+    },
+    {
+        "name": "Beef Chili",
+        "ingredients": ["ground beef", "kidney beans", "tomato", "onion", "garlic", "chili powder", "cumin", "bell pepper"]
+    },
+    {
+        "name": "Pesto Pasta",
+        "ingredients": ["pasta", "basil", "pine nuts", "parmesan", "garlic", "olive oil"]
+    },
+    {
+        "name": "Egg Fried Rice",
+        "ingredients": ["rice", "eggs", "soy sauce", "peas", "carrots", "garlic", "sesame oil", "green onion"]
+    },
+    {
+        "name": "Baked Potato",
+        "ingredients": ["potato", "butter", "sour cream", "cheddar cheese", "bacon", "chives"]
+    },
+    {
+        "name": "Tuna Salad Sandwich",
+        "ingredients": ["tuna", "mayonnaise", "celery", "onion", "lemon", "bread", "lettuce"]
+    },
+    {
+        "name": "Grilled Cheese Sandwich",
+        "ingredients": ["bread", "cheddar cheese", "butter"]
+    },
+    {
+        "name": "Tomato Grilled Cheese",
+        "ingredients": ["bread", "cheddar cheese", "butter", "tomato", "basil"]
+    },
+    {
+        "name": "BLT Sandwich",
+        "ingredients": ["bread", "bacon", "lettuce", "tomato", "mayonnaise"]
+    },
+    {
+        "name": "Club Sandwich",
+        "ingredients": ["bread", "chicken", "bacon", "lettuce", "tomato", "mayonnaise", "cheddar cheese"]
+    },
+    {
+        "name": "Mac and Cheese",
+        "ingredients": ["macaroni", "cheddar cheese", "milk", "butter", "flour", "mustard powder"]
+    },
+    {
+        "name": "Chicken Parmesan",
+        "ingredients": ["chicken", "tomato sauce", "mozzarella", "parmesan", "breadcrumbs", "eggs", "olive oil"]
+    },
+    {
+        "name": "Beef Stew",
+        "ingredients": ["beef", "potato", "carrot", "onion", "garlic", "tomato paste", "beef broth", "thyme"]
+    },
+    {
+        "name": "Vegetable Curry",
+        "ingredients": ["potato", "chickpeas", "tomato", "onion", "garlic", "ginger", "curry powder", "coconut milk"]
+    },
+    {
+        "name": "Chicken Tikka Masala",
+        "ingredients": ["chicken", "tomato", "cream", "onion", "garlic", "ginger", "garam masala", "cumin", "coriander"]
+    },
+    {
+        "name": "Pad Thai",
+        "ingredients": ["rice noodles", "shrimp", "eggs", "bean sprouts", "green onion", "peanuts", "lime", "fish sauce", "soy sauce"]
+    },
+    {
+        "name": "Vegetable Stir-Fry",
+        "ingredients": ["broccoli", "bell pepper", "carrot", "snap peas", "soy sauce", "garlic", "ginger", "sesame oil", "rice"]
+    },
+    {
+        "name": "Shakshuka",
+        "ingredients": ["eggs", "tomato", "bell pepper", "onion", "garlic", "cumin", "paprika", "olive oil", "feta cheese"]
+    },
+    {
+        "name": "Lentil Soup",
+        "ingredients": ["lentils", "onion", "garlic", "carrot", "cumin", "olive oil", "lemon", "chicken broth"]
+    },
+    {
+        "name": "Chicken Caesar Wrap",
+        "ingredients": ["chicken", "tortilla", "romaine lettuce", "parmesan", "caesar dressing", "croutons"]
+    },
+    {
+        "name": "Falafel Bowl",
+        "ingredients": ["chickpeas", "garlic", "onion", "parsley", "cumin", "coriander", "rice", "tahini", "lemon"]
+    },
+    {
+        "name": "Meatball Sub",
+        "ingredients": ["ground beef", "hoagie roll", "tomato sauce", "mozzarella", "parmesan", "breadcrumbs", "eggs", "garlic"]
+    },
+    {
+        "name": "Pulled Pork Sandwich",
+        "ingredients": ["pork shoulder", "burger buns", "coleslaw", "bbq sauce", "onion", "garlic", "brown sugar"]
+    },
+    {
+        "name": "Fish and Chips",
+        "ingredients": ["cod", "potato", "flour", "eggs", "beer", "oil", "lemon", "tartar sauce"]
+    },
+    {
+        "name": "Shrimp Scampi",
+        "ingredients": ["shrimp", "pasta", "garlic", "butter", "white wine", "lemon", "parsley", "red pepper flakes"]
+    },
+    {
+        "name": "Chicken Fajitas",
+        "ingredients": ["chicken", "tortilla", "bell pepper", "onion", "lime", "cumin", "chili powder", "sour cream", "salsa"]
+    },
+    {
+        "name": "Butternut Squash Soup",
+        "ingredients": ["butternut squash", "onion", "garlic", "chicken broth", "cream", "butter", "nutmeg", "thyme"]
+    },
+    {
+        "name": "Sushi Bowls",
+        "ingredients": ["rice", "salmon", "avocado", "cucumber", "soy sauce", "sesame oil", "nori", "sesame seeds"]
+    },
+    {
+        "name": "Turkey Meatballs",
+        "ingredients": ["ground turkey", "breadcrumbs", "eggs", "garlic", "parsley", "parmesan", "tomato sauce"]
+    },
+    {
+        "name": "Sweet Potato Curry",
+        "ingredients": ["sweet potato", "coconut milk", "tomato", "onion", "garlic", "ginger", "curry powder", "chickpeas"]
+    },
+    {
+        "name": "Banana Bread",
+        "ingredients": ["banana", "flour", "eggs", "butter", "sugar", "baking soda", "vanilla extract", "salt"]
+    },
+    {
+        "name": "Chocolate Chip Cookies",
+        "ingredients": ["flour", "butter", "sugar", "brown sugar", "eggs", "vanilla extract", "baking soda", "chocolate chips"]
+    },
+    {
+        "name": "Blueberry Muffins",
+        "ingredients": ["flour", "blueberries", "eggs", "milk", "butter", "sugar", "baking powder", "vanilla extract"]
+    },
+    {
+        "name": "Waffles",
+        "ingredients": ["flour", "eggs", "milk", "butter", "baking powder", "sugar", "vanilla extract"]
+    },
+    {
+        "name": "Breakfast Burrito",
+        "ingredients": ["eggs", "tortilla", "bacon", "cheddar cheese", "bell pepper", "onion", "salsa", "sour cream"]
+    },
+    {
+        "name": "Eggs Benedict",
+        "ingredients": ["eggs", "english muffin", "bacon", "butter", "lemon", "egg yolks", "hollandaise sauce"]
+    },
+    {
+        "name": "Granola",
+        "ingredients": ["oats", "honey", "butter", "brown sugar", "almonds", "vanilla extract", "cinnamon"]
+    },
+    {
+        "name": "Overnight Oats",
+        "ingredients": ["oats", "milk", "yogurt", "honey", "banana", "chia seeds"]
+    },
+    {
+        "name": "Açaí Bowl",
+        "ingredients": ["açaí", "banana", "blueberries", "granola", "honey", "almond milk", "strawberries"]
+    },
+    {
+        "name": "Grilled Chicken Salad",
+        "ingredients": ["chicken", "romaine lettuce", "tomato", "cucumber", "red onion", "olive oil", "lemon", "feta cheese"]
+    },
+    {
+        "name": "Cobb Salad",
+        "ingredients": ["chicken", "bacon", "eggs", "avocado", "tomato", "blue cheese", "romaine lettuce", "red onion"]
+    },
+    {
+        "name": "Nicoise Salad",
+        "ingredients": ["tuna", "eggs", "green beans", "potato", "olives", "tomato", "olive oil", "lemon", "mustard"]
+    },
+    {
+        "name": "Ramen",
+        "ingredients": ["ramen noodles", "chicken broth", "soy sauce", "eggs", "green onion", "nori", "corn", "butter"]
+    },
+    {
+        "name": "Pho",
+        "ingredients": ["rice noodles", "beef broth", "beef", "bean sprouts", "basil", "lime", "fish sauce", "star anise"]
+    },
+    {
+        "name": "Dumplings",
+        "ingredients": ["ground pork", "dumpling wrappers", "cabbage", "garlic", "ginger", "soy sauce", "sesame oil"]
+    },
+    {
+        "name": "Fried Dumplings",
+        "ingredients": ["ground pork", "dumpling wrappers", "cabbage", "garlic", "ginger", "soy sauce", "sesame oil", "oil"]
+    },
+    {
+        "name": "Spring Rolls",
+        "ingredients": ["rice paper", "shrimp", "rice noodles", "lettuce", "carrot", "cucumber", "mint", "peanut sauce"]
+    },
+    {
+        "name": "Banh Mi",
+        "ingredients": ["baguette", "pork", "pickled carrot", "daikon", "cucumber", "cilantro", "jalapeño", "mayonnaise"]
+    },
+    {
+        "name": "Bibimbap",
+        "ingredients": ["rice", "beef", "spinach", "carrot", "zucchini", "eggs", "soy sauce", "sesame oil", "gochujang"]
+    },
+    {
+        "name": "Korean Fried Chicken",
+        "ingredients": ["chicken", "flour", "cornstarch", "garlic", "ginger", "soy sauce", "honey", "gochujang", "oil"]
+    },
+    {
+        "name": "Teriyaki Chicken",
+        "ingredients": ["chicken", "soy sauce", "honey", "garlic", "ginger", "sesame seeds", "rice", "green onion"]
+    },
+    {
+        "name": "Miso Soup",
+        "ingredients": ["miso paste", "tofu", "seaweed", "green onion", "dashi"]
+    },
+    {
+        "name": "Gyoza",
+        "ingredients": ["ground pork", "dumpling wrappers", "cabbage", "garlic", "ginger", "soy sauce", "sesame oil", "oil"]
+    },
+    {
+        "name": "Chicken Shawarma",
+        "ingredients": ["chicken", "pita bread", "yogurt", "garlic", "lemon", "cumin", "paprika", "turmeric", "tomato", "cucumber"]
+    },
+    {
+        "name": "Lamb Kebabs",
+        "ingredients": ["ground lamb", "onion", "garlic", "cumin", "coriander", "parsley", "pita bread", "yogurt"]
+    },
+    {
+        "name": "Hummus and Pita",
+        "ingredients": ["chickpeas", "tahini", "lemon", "garlic", "olive oil", "cumin", "pita bread"]
+    },
+    {
+        "name": "Spanakopita",
+        "ingredients": ["spinach", "feta cheese", "eggs", "phyllo dough", "onion", "garlic", "olive oil", "nutmeg"]
+    },
+    {
+        "name": "Moussaka",
+        "ingredients": ["eggplant", "ground beef", "tomato", "onion", "garlic", "cinnamon", "bechamel sauce", "parmesan"]
+    },
+    {
+        "name": "Paella",
+        "ingredients": ["rice", "shrimp", "chicken", "chorizo", "saffron", "bell pepper", "tomato", "onion", "garlic", "olive oil"]
+    },
+    {
+        "name": "Gazpacho",
+        "ingredients": ["tomato", "cucumber", "bell pepper", "onion", "garlic", "olive oil", "red wine vinegar", "bread"]
+    },
+    {
+        "name": "Tortilla Española",
+        "ingredients": ["eggs", "potato", "onion", "olive oil", "salt"]
+    },
+    {
+        "name": "Risotto alla Milanese",
+        "ingredients": ["arborio rice", "saffron", "onion", "white wine", "chicken broth", "butter", "parmesan"]
+    },
+    {
+        "name": "Osso Buco",
+        "ingredients": ["veal shanks", "onion", "carrot", "celery", "tomato", "white wine", "chicken broth", "garlic", "lemon", "parsley"]
+    },
+    {
+        "name": "Beef Bolognese",
+        "ingredients": ["ground beef", "pasta", "tomato", "onion", "carrot", "celery", "garlic", "red wine", "milk", "parmesan"]
+    },
+    {
+        "name": "Chicken Piccata",
+        "ingredients": ["chicken", "lemon", "capers", "butter", "white wine", "garlic", "parsley", "pasta"]
+    },
+    {
+        "name": "Eggplant Parmesan",
+        "ingredients": ["eggplant", "tomato sauce", "mozzarella", "parmesan", "breadcrumbs", "eggs", "olive oil", "basil"]
+    },
+    {
+        "name": "French Onion Soup",
+        "ingredients": ["onion", "beef broth", "butter", "white wine", "thyme", "bread", "gruyere cheese"]
+    },
+    {
+        "name": "Quiche Lorraine",
+        "ingredients": ["eggs", "cream", "bacon", "gruyere cheese", "pie crust", "onion", "nutmeg"]
+    },
+    {
+        "name": "Crêpes",
+        "ingredients": ["flour", "eggs", "milk", "butter", "sugar", "vanilla extract"]
+    },
+    {
+        "name": "Beef Bourguignon",
+        "ingredients": ["beef", "red wine", "bacon", "mushrooms", "carrot", "onion", "garlic", "thyme", "beef broth"]
+    },
+    {
+        "name": "Coq au Vin",
+        "ingredients": ["chicken", "red wine", "bacon", "mushrooms", "onion", "garlic", "thyme", "chicken broth", "butter"]
+    },
+    {
+        "name": "Loaded Nachos",
+        "ingredients": ["tortilla chips", "cheddar cheese", "black beans", "jalapeño", "sour cream", "salsa", "avocado", "tomato"]
+    },
+    {
+        "name": "Spinach and Feta Stuffed Chicken",
+        "ingredients": ["chicken", "spinach", "feta cheese", "garlic", "olive oil", "lemon", "oregano"]
+    },
+    {
+        "name": "Honey Garlic Shrimp",
+        "ingredients": ["shrimp", "honey", "garlic", "soy sauce", "butter", "lemon", "parsley", "rice"]
+    },
+    {
+        "name": "Salmon Patties",
+        "ingredients": ["salmon", "breadcrumbs", "eggs", "onion", "celery", "mustard", "lemon", "parsley"]
+    },
+    {
+        "name": "Turkey Chili",
+        "ingredients": ["ground turkey", "kidney beans", "tomato", "onion", "garlic", "chili powder", "cumin", "bell pepper"]
+    },
+    {
+        "name": "Stuffed Bell Peppers",
+        "ingredients": ["bell pepper", "ground beef", "rice", "tomato sauce", "onion", "garlic", "cheddar cheese", "cumin"]
+    },
+    {
+        "name": "Zucchini Fritters",
+        "ingredients": ["zucchini", "eggs", "flour", "parmesan", "garlic", "green onion", "olive oil"]
+    },
+    {
+        "name": "Sweet Potato and Black Bean Burrito",
+        "ingredients": ["sweet potato", "black beans", "tortilla", "cheddar cheese", "avocado", "salsa", "cumin", "chili powder"]
+    },
+    {
+        "name": "Cauliflower Fried Rice",
+        "ingredients": ["cauliflower", "eggs", "soy sauce", "peas", "carrot", "garlic", "sesame oil", "green onion"]
+    },
+    {
+        "name": "Chicken and Waffles",
+        "ingredients": ["chicken", "flour", "eggs", "milk", "butter", "baking powder", "hot sauce", "maple syrup"]
+    },
+    {
+        "name": "Clam Chowder",
+        "ingredients": ["clams", "potato", "onion", "celery", "bacon", "cream", "butter", "flour", "chicken broth"]
+    },
+    {
+        "name": "Lobster Bisque",
+        "ingredients": ["lobster", "cream", "onion", "carrot", "celery", "tomato paste", "white wine", "butter", "tarragon"]
     }
 ]
