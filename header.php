@@ -1,8 +1,8 @@
-  <?php
-  //only starts session if one isn't running                                                                                                                                                                                                           
-  if (session_status() === PHP_SESSION_NONE) {                                                                                                                                                                    
-      session_start();                                                                                                                                                                                            
-  }               
+<?php
+  //only starts session if one isn't running
+  if (session_status() === PHP_SESSION_NONE) {
+      session_start();
+  }
   ?>
 
 <!DOCTYPE html>
@@ -27,15 +27,15 @@
         <li><a href="contact.php">Contact</a></li>
         <li><a href="food_reviews.php">Reviews</a></li>
         <li><a href="menus.php">Tufts Menus</a></li>
-        <?php 
+        <?php
         //check if user is signed in to determine whether we show username or login prompt
             if(isset( $_SESSION['user_id'])): ?>
                 <!-- hide mobile tag since it is not neccesary to have this on mobile-->
-                <li class="hide-mobile"><span style="color:#ffffffeb; font-size:15px; font-weight:600; padding:10px 14px; display:inline-block;">Hi, <?php echo htmlspecialchars($_SESSION['username']); ?></span></li>         
-                <li><a href="logout.php">Logout</a></li> 
+                <li class="hide-mobile"><span style="color:#ffffffeb; font-size:15px; font-weight:600; padding:10px 14px; display:inline-block;">Hi, <?php echo htmlspecialchars($_SESSION['username']); ?></span></li>
+                <li><a href="logout.php">Logout</a></li>
             <?php else: ?>
                 <li><a href="login.php">Login</a><li>
-            <?php endif; ?> 
+            <?php endif; ?>
     </ul>
     </div>
 </nav>
