@@ -166,6 +166,10 @@ function findRecipes() {
     resultsGrid.innerHTML = '';
     location.href = '#results-section';
 
+    /* This method is used to schedule the execution of a function after a 
+       specified delay
+       Reference: https://www.w3schools.com/JSREF/met_win_settimeout.asp
+    */
     setTimeout(function () {
         // Build a list of recipe matches, including which ingredients
         // the user has and which are missing.
