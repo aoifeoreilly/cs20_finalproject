@@ -31,8 +31,9 @@ $day = (int)date('d');
 
 foreach ($locations as $loc) {
     foreach ($meals as $meal) {
+        // https://www.reddit.com/r/code/comments/1694zkj/api_help/ API Help
         $url = "https://tufts.api.nutrislice.com/menu/api/weeks/school/$loc/menu-type/$meal/$year/$month/$day/";
-        // https://www.php.net/manual/en/book.curl.php ts lowkey took me forever
+        // https://www.php.net/manual/en/book.curl.php Curl Help
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -45,6 +46,7 @@ foreach ($locations as $loc) {
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
 
+        // Check to make sure our request has succeeded.
         if ($httpCode === 200) {
             $data = json_decode($response, true);
             if (isset($data['days'])) {

@@ -27,6 +27,19 @@ include 'db_connect.php';
 
 $today = date('Y-m-d');
 
+/********** getMenu ********
+*
+* Retrieves menu items for a specific location, meal type, and date from the database.
+*
+* Parameters:
+*      $db: Database connection
+*      $loc: Dining location identifier
+*      $meal: Meal type
+*      $date: Date in YYYY-MM-DD format
+*
+* Notes:
+*      Returns an array of strings containing the item names.
+************************/
 function getMenu($db, $loc, $meal, $date) {
     $stmt = $db->prepare("SELECT item_name FROM menu_items WHERE location = ? AND meal_type = ? AND menu_date = ?");
     $stmt->bind_param("sss", $loc, $meal, $date);
@@ -40,7 +53,17 @@ function getMenu($db, $loc, $meal, $date) {
     return $items;
 }
 
-//for getting rating data for each item
+/********** getRatingData ********
+*
+* Retrieves average ratings and review counts for all reviewed food items.
+*
+* Parameters:
+*      $db: Database connection
+*
+* Notes:
+*      Returns an associative array where keys are item names and values 
+*      are arrays with avgs and counts.
+************************/
 function getRatingData($db) {
     //query db to get avg rating and number of revuw
     $results = $db->query("SELECT reviewed_item, AVG(rating) AS avg_rating, COUNT(*) AS review_count FROM reviews GROUP BY reviewed_item");
@@ -157,7 +180,19 @@ $ratingData = getRatingData($dbConnection);
 
 <?php
 
-#added 3rd parameter for it to take in rating data 
+/********** renderMealBox ********
+*
+* Renders a HTML box containing a list of menu items for a specific meal,
+* including their average rating stars, review count, and a link to review.
+*
+* Parameters:
+*      $title: The title of the meal 
+*      $items: Array of menu item names
+*      $ratingData: Associative array of ratings
+*
+* Notes:
+*      Outputs HTML directly to the page.
+************************/
 function renderMealBox($title, $items, $ratingData) {
     echo '<div class="recipe-card">';
     echo '<div class="recipe-card-header"><h3>'.$title.'</h3></div>';
@@ -166,6 +201,7 @@ function renderMealBox($title, $items, $ratingData) {
         echo "<li>No items found</li>";
     } else {
         foreach($items as $item) {
+            // https://www.php.net/manual/en/function.htmlspecialchars.php 
             $safeItem = htmlspecialchars($item);
             echo '<li><a href="javascript:void(0)" class="menu-item-link" onclick="openReviewModal(\''.$safeItem.'\')">';
             echo '<span class="dot dot-have"></span> '.$safeItem.'</a>';

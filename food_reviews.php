@@ -19,8 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $item = trim($_POST['reviewed_item'] ?? 'General');
 
     if (!empty($name) && !empty($text) && $rating > 0) {
+        // Same citations as in login for these.
         $stmt = $dbConnection->prepare("INSERT INTO reviews (reviewer_name, rating, review_text, reviewed_item, created_at) VALUES (?, ?, ?, ?, NOW())");
-        $stmt->bind_param("siss", $name, $rating, $text, $item);
+        $stmt->bind_param("ssss", $name, $rating, $text, $item);
         $stmt->execute();
         $stmt->close();
         header("Location: food_reviews.php?success=1");
@@ -56,6 +57,7 @@ if (!empty($search)) {
         <!-- Search Bar -->
         <div class="builder-card" style="margin-top: 2rem; max-width: 600px;">
             <form action="food_reviews.php" method="GET" style="display:flex; gap:0.5rem;">
+                <!--Output formattiong https://www.php.net/manual/en/function.htmlspecialchars.php -->
                 <input type="text" name="q" placeholder="Search for a dish (e.g. Grilled Chicken)..." 
                        value="<?php echo htmlspecialchars($search); ?>" 
                        style="flex-grow:1; padding:0.75rem; border:1px solid #ddd; border-radius:0.5rem;">
@@ -89,6 +91,7 @@ if (!empty($search)) {
                         </div>
                         <div class="recipe-card-body">
                             <p style="font-style: italic; color: #4b5563; margin-bottom: 0.75rem;">
+                                <!-- Reference: https://www.php.net/manual/en/function.nl2br.php Converts newlines to line breaks ran into issues without this. -->
                                 "<?php echo nl2br(htmlspecialchars($row['review_text'])); ?>"
                             </p>
                             <div style="border-top: 1px solid #f3f4f6; padding-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
