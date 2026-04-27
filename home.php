@@ -39,7 +39,7 @@
             <button class="btn btn-secondary" onclick="addIngredient()">Add</button>
             </div>
 
-            <div id="tag-container" aria-label="Added ingredients"></div>
+            <div id="tag-container" label="Added ingredients"></div>
 
             <button class="btn btn-primary find-btn" onclick="findRecipes()">
                 Find Recipes
