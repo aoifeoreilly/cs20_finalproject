@@ -428,6 +428,10 @@ footer a:hover {
     h2 {
         font-size: 29px;
     }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 600px) {

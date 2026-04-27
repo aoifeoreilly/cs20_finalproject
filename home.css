@@ -230,6 +230,10 @@
     .steps-grid {
         grid-template-columns: 100%;
     }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 600px) {

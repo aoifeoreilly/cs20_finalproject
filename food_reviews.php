@@ -82,7 +82,7 @@ if (!empty($search)) {
         <?php endif; ?>
 
         <div class="results-grid">
-            <?php if ($result && $result->num_rows > 0): ?>
+            <?php if ($result && $result->num_rows >c 0): ?>
                 <?php while($row = $result->fetch_assoc()): ?>
                     <div class="recipe-card" style="margin-bottom: 1.5rem;">
                         <div class="recipe-card-header">
