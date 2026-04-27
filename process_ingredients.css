@@ -40,3 +40,21 @@
     width: 100%;
     margin-top: 14px;
 }
+.item-shop-link {
+    font-size: 0.75rem;
+    color: #2d5f9f;
+    text-decoration: none;
+    padding: 4px 8px;
+    background: #eef5ff;
+    border: 1px solid #bfd7ff;
+    border-radius: 6px;
+    margin-left: auto;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.item-shop-link:hover {
+    background: #2d5f9f;
+    color: white;
+    border-color: #2d5f9f;
+}

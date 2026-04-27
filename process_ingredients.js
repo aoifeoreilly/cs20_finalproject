@@ -243,30 +243,30 @@ function buildRecipeCard(recipe, index) {
     // calculate match percentage and missing ingredient sections
     for (i = 0; i < recipe.have.length; i++) {
         haveItems += '<li><span class="dot dot-have"></span> ' + capitalize(recipe.have[i])
-            + ' <span style="color:#3AAD6E;font-size:0.75rem;">&#10003;</span></li>';
+            + ' <span style="color:#3AAD6E;font-size:0.75rem;margin-left:auto;">&#10003;</span></li>';
     }
 
     for (i = 0; i < recipe.missing.length; i++) {
-        missingItems += '<li><span class="dot dot-missing"></span> ' + capitalize(recipe.missing[i]) + '</li>';
+        const item = recipe.missing[i];
+        missingItems += '<li>'
+            + '<span class="dot dot-missing"></span> ' + capitalize(item)
+            + '<a href="#" onclick="shopOnInstacart(\'' + item + '\'); return false;" class="item-shop-link" title="Search on Instacart">Instacart</a>'
+            + '</li>';
     }
 
     if (recipe.missing.length === 0) {
         extraSection = '<p style="font-size:0.9rem;color:#3AAD6E;font-weight:700;">You have everything!</p>';
     } else {
         extraSection = '<div class="stores-section">'
-            + '<h4>Where to buy the rest</h4>'
+            + '<h4>Local Groceries:</h4>'
             + buildStoreInfo(recipe.missing)
-            + '</div>'
-            + '<button class="btn btn-primary shop-btn" onclick="shopOnInstacart(\'' + recipe.missing.join('|') + '\')">'
-            + 'Shop Missing Ingredients on Instacart</button>';
+            + '</div>';
 
         if (buildStoreInfo(recipe.missing) === '') {
             extraSection = '<div class="stores-section">'
-                + '<h4>Where to buy the rest</h4>'
+                + '<h4>Local Groceries:</h4>'
                 + '<p style="font-size:0.85rem;color:#6b7280;">No local store matches found.</p>'
-                + '</div>'
-                + '<button class="btn btn-primary shop-btn" onclick="shopOnInstacart(\'' + recipe.missing.join('|') + '\')">'
-                + 'Shop Missing Ingredients on Instacart</button>';
+                + '</div>';
         }
     }
 
@@ -322,10 +322,12 @@ function buildStoreInfo(missingItems) {
 */
 function shopOnInstacart(items) {
     const list = items.split('|');
-    const query = encodeURIComponent(list.join(' '));
-    const url = 'https://www.instacart.com/store/s?k=' + query;
-    // open the URL in a new browser tab
-    window.open(url, '_blank');
+    list.forEach(item => {
+        const query = encodeURIComponent(item.trim());
+        const url = 'https://www.instacart.com/store/s?k=' + query;
+        // open the URL in a new browser tab
+        window.open(url, '_blank');
+    });
 }
 
 /* clearResults
