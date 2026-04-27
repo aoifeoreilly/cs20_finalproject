@@ -22,6 +22,9 @@
 <nav>
     <div class="nav-inner">
     <a class="nav-logo" href="home.php">Tufts<span>Eats</span></a>
+    <button class="nav-toggle" aria-label="toggle navigation">
+        <span class="hamburger"></span>
+    </button>
     <ul class="nav-links">
         <li><a href="home.php">Recipe Builder</a></li>
         <li><a href="contact.php">Contact</a></li>
@@ -42,3 +45,10 @@
     </ul>
     </div>
 </nav>
+
+<script>
+    document.querySelector('.nav-toggle').addEventListener('click', function() {
+        this.classList.toggle('nav-toggle-open');
+        document.querySelector('.nav-links').classList.toggle('nav-links-open');
+    });
+</script>
